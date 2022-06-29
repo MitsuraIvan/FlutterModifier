@@ -248,7 +248,10 @@ class _State extends State<WidgetModifier> {
       );
     }
 
-    widget.builder?.call(element, buildChain(iterator));
+    final builder = widget.builder;
+    if (builder != null) {
+      return builder(element, buildChain(iterator));
+    }
 
     throw Exception("Unknown param: $element");
   }
