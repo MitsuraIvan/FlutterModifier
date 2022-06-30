@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modifier/WidgetModifier.dart';
+import 'package:flutter_modifier/custom.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,12 +26,8 @@ class MyTestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: WidgetModifier(
-        modifier: Modifier()
-            .onClick(onClick: () {})
-            .background(color: Colors.red)
-            .padding(edgeInsets: const EdgeInsets.all(80))
-            .background(color: Colors.blue)
-            .padding(edgeInsets: const EdgeInsets.all(80)),
+        builder: EXT_MODIFIER.myCustomBuilder,
+        modifier: Modifier().onClick(onClick: () {}).myCustomDzen(Colors.blue).myAnotherSweattyBuildUp(40, 41, 42),
         child: Text("Literally nothing"),
       ),
     );

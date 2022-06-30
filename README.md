@@ -43,19 +43,18 @@ Stop with smiling get some help ),),),),),),),),),),),),),),),),),),),),),),),),
 //I have no fantasy for example here, but you can literally combine any Widgets in any way and form you want to reuse in single line way:
 extension EXT_MODIFIER on Modifier {
   static Widget myCustomBuilder(dynamic element, Widget child) {
-    if (element == _MyCustomTag) {
+    if (element is _MyCustomTag) {
       return Card(
-        color: (element as _MyCustomTag).someParam,
+        color: element.someParam,
         child: child,
       );
     }
-    if (element == _MySweattyTag) {
-      final sweatyItem = element as _MySweattyTag;
+    if (element is _MySweattyTag) {
       return Padding(
-        padding: EdgeInsets.all(sweatyItem.number3),
+        padding: EdgeInsets.all(element.number3),
         child: SizedBox(
-          height: sweatyItem.number1,
-          width: sweatyItem.number2,
+          height: element.number1,
+          width: element.number2,
           child: child,
         ),
       );
@@ -105,5 +104,6 @@ class MyTestWidget extends StatelessWidget {
     );
   }
 }
+
 
 ```

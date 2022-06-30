@@ -253,6 +253,7 @@ class _State extends State<WidgetModifier> {
       return builder(element, buildChain(iterator));
     }
 
-    throw Exception("Unknown param: $element");
+    throw Exception("Unknown param: $element."
+        "You either forgot to add custom 'builder' or something is super broken in lib");
   }
 }
